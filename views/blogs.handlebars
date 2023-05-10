@@ -1,14 +1,12 @@
 <div>
-    <h2>Blog Postssss</h2>
+    <h2>Blog Posts</h2>
 </div>
 <p>hello all</p>
 <div>
     {{#each allblogpost}}
-    <h3>{{title}} by {{User.username}}</h3>
-    <p>{{content}}</p>
-    <p>comments by: {{Comment.content}}</p>
-    <hr>
-{{/each}}
+    <h3>Title of the Post is: {{title}}</h3>
+    <p>content is: {{content}}</p>
+   {{/each}}
 
 
 

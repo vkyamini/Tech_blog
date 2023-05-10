@@ -2,11 +2,11 @@ const express = require('express');
 const router = express.Router();
 const {BlogPost,User,Comment} = require('../models');
 
-// router.get("/",(req,res)=>{
-//     res.render("blogs", {
-//         logged_in: req.session.logged_in,
-//     });
-// })
+router.get("/",(req,res)=>{
+    res.render("blogs", {
+        logged_in: req.session.logged_in,
+    });
+})
 
 router.get("/",(req,res)=>{
     BlogPost.findAll({
