@@ -1,0 +1,17 @@
+<div>
+    <h2>Blog Postssss</h2>
+</div>
+<p>hello all</p>
+<div>
+    {{#each allblogpost}}
+    <h3>{{title}} by {{User.username}}</h3>
+    <p>{{content}}</p>
+    <p>comments by: {{Comment.content}}</p>
+    <hr>
+{{/each}}
+
+
+
+</div>
+
+<script src="./js/blogs.js"></script>

@@ -1,0 +1,17 @@
+[
+    {
+        "content":"this is very valuable post",
+        "blogPostId": 1,
+        "userId": 2
+    },
+    {
+        "content":"this is lively post",
+        "blogPostId": 1,
+        "userId": 2
+    },
+    {
+        "content":"this is excellent post",
+        "blogPostId": 1,
+        "userId": 2
+    }
+]
