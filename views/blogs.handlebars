@@ -1,15 +1,32 @@
 <div>
     <h2>Blog Posts</h2>
 </div>
-<p>hello all</p>
 <div>
-    {{#each allblogpost}}
-    <h3>Title of the Post is: {{title}}</h3>
-    <p>content is: {{content}}</p>
+    {{!-- since it is an array of object we used #each method and save the objects of array in "blogpost" --}}
+    {{#each blogpost as |blogpost|}}
+    <h3>{{blogpost.title}} </h3>
+    <p> {{blogpost.content}}</p>
+    <p>{{blogpost.createdAt}}</p>
    {{/each}}
 
-
-
+ {{#each userpost as |userpost|}}
+    <h3>user name is: {{userpost.username}} </h3>
+   
+   {{/each}}
 </div>
+{{!-- form to collect the details from the poster --}}
+<form class='new-blog'>
+      <label for='blog-title'> Blog Title: </label>
+      <br />
+      <textarea id='blog-title' name='blog-title' rows='2' cols='30'></textarea>
+      <br />
+      <label for='content'>content:</label>
+      <br />
+      <textarea id='content' name='content' rows='5' cols='30'></textarea>
+      <br />
+      <br />
+      <br />
+      <button type='submit' value='Submit'>Submit</button>
+    </form>
 
 <script src="./js/blogs.js"></script>

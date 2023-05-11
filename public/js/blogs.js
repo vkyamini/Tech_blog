@@ -1,16 +1,47 @@
-const fetchBlogs = () => {
-  fetch(`/api/blogpost`, {
-    method: "GET",
+// const fetchBlogs = () => {
+//   fetch(`/blogpost`, {
+//     method: "GET",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//   }).then((response) => {
+//     return response.json();
+//   }).then((data) => {
+//     console.log(data);
+//   }).catch((err) => {
+//     console.log(err);
+//   })
+// }
+
+// fetchBlogs();
+
+async function newBlog(event){
+  event.preventDefault();
+
+  const title = document.querySelector('#blog-title').value;
+  const content = document.querySelector('#content').value;
+  // const creater_name =  document.querySelector('#creater-name').value;
+
+  const response = await fetch(`/api/blogpost`,{
+    method: 'POST',
+    body: JSON.stringify({
+      title,
+      content,
+      
+     }),
     headers: {
-      "Content-Type": "application/json",
+      'Content-Type': 'application/json',
     },
-  }).then((response) => {
-    return response.json();
-  }).then((data) => {
-    console.log(data);
-  }).catch((err) => {
-    console.log(err);
-  })
+        
+  });
+    
+  if (response.ok) {
+    document.location.replace('/');
+  } else {
+    alert('Failed to add dish');
+  }
+  
 }
 
-fetchBlogs();
+
+document.querySelector('.new-blog').addEventListener('submit', newBlog);
