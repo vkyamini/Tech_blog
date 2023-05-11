@@ -1,11 +1,6 @@
 const router = require('express').Router();
 const { BlogPost } = require('../../models');
 
-// CRUD
-// router.use("/all", (req, res) => {
-//     res.json({blogPost: true})
-// });
-
 router.get("/",(req,res)=>{
   BlogPost.findAll().then(data=>{
       res.json(data)
@@ -24,21 +19,22 @@ router.get("/:id", (req,res) => {
   })
 })
 
-router.post('/', async (req, res) => {
-  if(!req.session.logged_in){
-    return res.status(403).json({msg:"login first!"})
-  }
-  try {
-    const newBlog = await BlogPost.create({
-      ...req.body,
-      user_id: req.session.user_id,
-    });
+// creates a new post and renders all tehblog post
+router.post('/',async (req,res)=>{
+  try{
+  const newblog = BlogPost.create({
 
-    res.status(200).json(newBlog);
-  } catch (err) {
-    res.status(400).json(err);
-  }
+    title:req.body.title,
+    content:req.body.content,
+ });
+ res.status(200).json(newblog);
+ console.log('i am new blog post', newblog)
+}catch(err){
+  res.status(400).json(err);
+}
+ 
 });
+
 
 router.delete("/:id", (req,res) => {
   BlogPost.destroy({where: {id: req.params.id}}).then(data=>{
