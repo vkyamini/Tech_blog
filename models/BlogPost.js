@@ -24,6 +24,7 @@ BlogPost.init(
         type: DataTypes.DATE,
         allowNull: false
     },
+    
     userId: {
         type: DataTypes.INTEGER,
         references: {
