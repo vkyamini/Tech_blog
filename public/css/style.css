@@ -1,0 +1,31 @@
+body
+{
+   background-color: cornflowerblue;
+}
+h2{
+    color:black;
+    font-style: italic;
+}
+a
+{
+    color:blueviolet;
+}
+p{
+    color:darkblue;
+    font-family: fantasy ;
+}
+nav{
+    
+    gap:20px;
+    display: flex;
+}
+#blog
+{   
+    text-align: center;
+    font-size: large;
+    background-color: cornflowerblue;
+    color:black;
+}
+.new-blog{
+    text-align: center;
+}
