@@ -4,7 +4,10 @@
 <div>
     {{!-- since it is an array of object we used #each method and save the objects of array in "blogpost" --}}
     {{#each blogpost as |blogpost|}}
+    <a href="/blogpost/{{id}}">
     <h3>{{blogpost.title}} </h3>
+    {{!-- created the link for the title to fetch the single blogpost --}}
+    </a>
     <p> {{blogpost.content}}</p>
     <p>{{blogpost.createdAt}}</p>
    {{/each}}
