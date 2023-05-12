@@ -1,7 +1,6 @@
-<div>
-    <h2>Blog Posts</h2>
-</div>
-<div>
+
+<div id="blog">
+   <h2>Blog Posts</h2>
     {{!-- since it is an array of object we used #each method and save the objects of array in "blogpost" --}}
     {{#each blogpost as |blogpost|}}
     <a href="/blogpost/{{id}}">
@@ -9,7 +8,7 @@
     {{!-- created the link for the title to fetch the single blogpost --}}
     </a>
     <p> {{blogpost.content}}</p>
-    <p>{{blogpost.createdAt}}</p>
+    {{!-- <p>{{blogpost.createdAt}}</p> --}}
    {{/each}}
 
  {{#each userpost as |userpost|}}

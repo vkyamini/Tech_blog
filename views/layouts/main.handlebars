@@ -5,19 +5,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blogpost</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
 </head>
 <body>
     <header>
-        <a href="/">Home</a>
+        <nav>  <h2><a href="/">Home</a></h2>  <h2><a href="login">Login</a></h2>  </nav>
+     
  {{!-- if logged-in these below url will show --}}
-        {{#if logged_in}}
+        {{!-- {{#if logged_in}}
             <a href="/profile">profile</a>
             <button id="logout">Logout</button>
             <script src="/js/logout.js"></script>
         {{else}}
-            <a href="login">Login</a>
+          <h2><a href="login">Login</a></h2>  
             
-        {{/if}}
+        {{/if}} --}}
     </header>
     <main>
         {{{body}}}
