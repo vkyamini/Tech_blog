@@ -39,9 +39,9 @@ async function deleteblog(event){
   event.preventDefault();
   
   // 1. Get it from the URL
-  // const id = window.location.pathname.split("/")[2];
+   const id = window.location.pathname.split("/")[2];
   // 2. Get it from HTML (can't use ID or Class).
-  const id = this.dataset.blogId;
+  //const id = this.dataset.blogId;
   
   const response = await fetch(`/api/blogpost/delete/${id}`,{
     method: 'DELETE',
@@ -60,4 +60,7 @@ async function deleteblog(event){
 }
 
 //   const blogId = document.querySelector('.edit-blogs').ATTRIBUTE_NODE();
-document.querySelector('.edit-blogs').addEventListener('submit', deleteblog);
+//document.querySelector('.edit-blogs').addEventListener('submit', deleteblog);
+const deletBtn = document.querySelector('#delete-btn')
+//console.log (deletBtn)
+deletBtn.addEventListener('click',deleteblog )
