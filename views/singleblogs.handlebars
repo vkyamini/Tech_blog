@@ -1,0 +1,37 @@
+{{!-- <h4>wanna edit the blogpost<h4> --}}
+
+<div class="dish-card">
+  <div class="dish-card-header">
+   <h3>{{title}}</h3> 
+  </div>
+  <div class="card-body">
+    <p>
+     {{content}}
+    </p>
+   
+  </div>
+</div>
+
+<div class="edit-dish-container">
+  <h2>
+    Update Blogs
+  </h2>
+  <form class="edit-blogs" data-blog-id={{id}}>
+    <label for="title"> title:</label>
+    <br />
+    <textarea id="title" name="title" rows="2" cols="30">{{title}}</textarea>
+    <br />
+    <label for="content">content:</label>
+    <br />
+    <textarea id="content" name="content" rows="5" cols="30">{{content}}</textarea>
+    <br />
+    <br />
+    <br />
+    <button type="submit" value="Submit">
+      Submit
+    </button>
+    <button type='submit' value='delete'>delete</button>
+  </form>
+</div>
+
+<script src="../js/editBlog.js"></script> 
