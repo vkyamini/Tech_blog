@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const {BlogPost,User,Comment} = require('../models');
 
+
+// to render all the blogpost on blogs.handelbar page , initial page.
 router.get('/',async(req,res)=>{
     BlogPost.findAll().then(data=>{
         console.log("i am data raw", data);
@@ -13,16 +15,35 @@ router.get('/',async(req,res)=>{
     })
 })
 
-// router.get('/',async(req,res)=>{
-//     User.findAll().then(userdata=>{
-//         console.log("i am data raw", userdata);
-//         const userblogdata = userdata.map(blogobj=>blogobj.get({plain:true}))
-//         console.log('i am edited user data' , userblogdata)
-//         res.render("blogs",{
-//             userpost:userblogdata
-//         })
-//     })
-// })
+router.get('/blogpost/:id',async(req,res)=>{
+        try{
+        const blogdata = await BlogPost.findByPk(req.params.id)
+        //res.json(blogdata);
+        const blogpost = blogdata.get({plain:true});
+        console.log(blogpost);
+        res.render('singleblogs', blogpost )
+        }catch(err){
+            res.status(500).json(err);
+        };
+    })
+ 
+    router.get('/blogpost/delete/:id', async (req,res)=>{
+        try{
+           const blogdata = await BlogPost.findByPk(req.params.id)
+           console.log(blogdata)
+           const deletedata = blogdata.get({plain:true});
+           res.render('delete', deletedata )
+        }catch(err){
+            res.status(500).json(err);
+        };
+    })
+        
+           
+   
+
+
+
+
 
 // router.get('/:id',async(req,res)=>{
 //     try{
