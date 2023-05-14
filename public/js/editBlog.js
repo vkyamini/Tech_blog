@@ -4,9 +4,9 @@ async function editblog(event){
     const title = document.querySelector('#title').value;
     const content = document.querySelector('#content').value;
 
-    // 1. Get it from the URL
+    // 1. Get id from the URL
     // const id = window.location.pathname.split("/")[2];
-    // 2. Get it from HTML (can't use ID or Class).
+    // 2. Get it from HTML (can't use ID or Class). 
     const id = this.dataset.blogId;
     
     const response = await fetch(`/api/blogpost/${id}`,{

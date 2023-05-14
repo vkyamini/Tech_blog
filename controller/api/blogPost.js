@@ -1,23 +1,18 @@
 const router = require('express').Router();
 const { BlogPost } = require('../../models');
 
-router.get("/",(req,res)=>{
-  BlogPost.findAll().then(data=>{
-      res.json(data)
-  }).catch(err=>{
-      console.log(err);
-      res.status(500).json({msg:"invalid syntax hence ,error occurred",err})
-  })
-});
+// displays all the blogpost on the page
 
-// router.get("/:id", (req,res) => {
-//   BlogPost.findByPk(req.params.id).then(data=>{
-//     res.json(data)
+// router.get("/",(req,res)=>{
+//   BlogPost.findAll().then(data=>{
+//       res.json(data)
 //   }).catch(err=>{
-//     console.log(err);
-//     res.status(500).json({msg:"invalid syntax hence ,error occurred",err})
+//       console.log(err);
+//       res.status(500).json({msg:"invalid syntax hence ,error occurred",err})
 //   })
-// })
+// });
+
+
 
 // creates a new post and renders all tehblog post
 router.post('/',async (req,res)=>{
