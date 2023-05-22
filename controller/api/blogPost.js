@@ -3,14 +3,14 @@ const { BlogPost } = require('../../models');
 
 // displays all the blogpost on the page
 
-// router.get("/",(req,res)=>{
-//   BlogPost.findAll().then(data=>{
-//       res.json(data)
-//   }).catch(err=>{
-//       console.log(err);
-//       res.status(500).json({msg:"invalid syntax hence ,error occurred",err})
-//   })
-// });
+router.get("/",(req,res)=>{
+  BlogPost.findAll().then(data=>{
+      res.json(data)
+  }).catch(err=>{
+      console.log(err);
+      res.status(500).json({msg:"invalid syntax hence ,error occurred",err})
+  })
+});
 
 
 

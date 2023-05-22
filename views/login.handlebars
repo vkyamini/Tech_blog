@@ -1,15 +1,27 @@
 <h3>please Login </h3>
-<form action="" id="login-form">
-    <input type="text" placeholder="email" id="login-email">
-    <input type="password" id="login-password">
-    <button>Login!</button>
+<form id="login-form">
+   {{!-- <label id="username">username</label> 
+   <input type="text" placeholder="username" id="username"> <br><br><br> --}}
+    <label id="email">Email</label> 
+    <input type="text" placeholder="email" id="email"> <br><br><br>
+
+     <label id="password">password</label> 
+    <input type="password" id="password"><br><br><br>
+    <button id="loginbtn">Login!</button>
 </form>
+<br><br><br><br><br><br>
 <h3>Signup </h3>
-<form action="" id="signup-form">
-    <input type="text" placeholder="email" id="signup-email">
-    <input type="text" placeholder="username" id="signup-username">
-    <input type="password" id="signup-password">
-    <button>Signup!</button>
+
+
+<form id="signup-form">
+
+    <label id="username">Email</label> 
+    <input type="text" placeholder="email" id="signup-email"><br><br><br>
+    <label id="username">username</label>
+    <input type="text" placeholder="username" id="signup-username"><br><br><br>
+    <label id="username">password</label> 
+    <input type="password" id="signup-password"><br><br><br>
+    <button id ="signupbtn">Signup!</button>
 </form>
 
-<script src="/public/js/login.js"></script>
+<script src="/js/login.js"></script>

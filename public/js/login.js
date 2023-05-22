@@ -1,45 +1,58 @@
-const loginForm = document.querySelector("#login-form");
-loginForm.addEventListener("submit",e=>{
-    e.preventDefault();
-    const userObj = {
-        email:document.querySelector("#login-email").value,
-        password:document.querySelector("#login-password").value,
-        //username:document.querySelector("#login-username").value
-    }
-    fetch("/api/users/login",{
-        method:"POST",
-        body:JSON.stringify(userObj),
-        headers:{
-            "Content-Type":"application/json"
-        }
-    }).then(res=>{
-        if(res.ok){
-           location.href = "/"
-        } else {
-            alert("trumpet sound")
-        }
-    })
-})
+async function loginform(event){
+    event.preventDefault();
+    
+    const email = document.querySelector('#email').value;
+    const password = document.querySelector('#password').value;
 
-const signupForm = document.querySelector("#signup-form");
-signupForm.addEventListener("submit",e=>{
-    e.preventDefault();
-    const userObj = {
-        email:document.querySelector("#signup-email").value,
-        name:document.querySelector("#signup-username").value,
-        password:document.querySelector("#signup-password").value,
-    }
-    fetch("/api/user",{
-        method:"POST",
-        body:JSON.stringify(userObj),
-        headers:{
-            "Content-Type":"application/json"
-        }
-    }).then(res=>{
-        if(res.ok){
-           location.href = "/"
+    if (email && password) {
+        // Send a POST request to the API endpoint
+        const response = await fetch("/api/user/login", {
+          method: "POST",
+          body: JSON.stringify({ username, password }),
+          headers: { "Content-Type": "application/json" },
+          
+        });
+        console.log(email)
+          console.log(password)
+    
+        if (response.ok) {
+         //console.log(response)
+          // If successful, redirect the browser to the profile page
+          document.location.replace("/");
         } else {
-            alert("trumpet sound")
+          console.log(await response.text());
         }
-    })
-})
+      }
+
+}
+
+const loginbtn  = document.querySelector('#loginbtn')
+
+loginbtn.addEventListener('submit', loginform);
+
+console.log(loginbtn);
+
+
+const signupFormHandler = async (event) => {
+    event.preventDefault();
+  
+    const username = document.querySelector('#signup-username').value.trim();
+    const email = document.querySelector('#signup-email').value.trim();
+    const password = document.querySelector('#signup-password').value.trim();
+  
+    if (username && email && password) {
+      const response = await fetch('/api/user', {
+        method: 'POST',
+        body: JSON.stringify({ username, email, password }),
+        headers: { 'Content-Type': 'application/json' },
+      });
+  
+      if (response.ok) {
+        document.location.replace('/blogpost');
+      } else {
+        alert('Failed to sign up.');
+      }
+    }
+  };
+
+  document.querySelector('#signupbtn').addEventListener('submit', signupFormHandler);

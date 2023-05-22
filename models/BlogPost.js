@@ -23,16 +23,8 @@ BlogPost.init(
     createdAt: {
         type: DataTypes.DATE,
         allowNull: false
-    },
-    
-    userId: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: "user",
-            key: "id"
-        }
     }
-  },
+},
   {
     sequelize,
     timestamps: true,

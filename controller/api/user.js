@@ -1,11 +1,16 @@
 const router = require('express').Router();
-const { User } = require('../../models');
+const { User,BlogPost,Comment } = require('../../models');
 
 // CR
 
 router.get("/",(req,res)=>{
-  User.findAll().then(data=>{
+  User.findAll(
+    {
+      include:[BlogPost]
+    }
+  ).then(data=>{
       res.json(data)
+
   }).catch(err=>{
       console.log(err);
       res.status(500).json({msg:"invalid syntax hence ,error occurred",err})
@@ -13,6 +18,7 @@ router.get("/",(req,res)=>{
 })
 
 //i am able to create username details.
+
 router.post('/', async (req, res) => {
     try {
       const userData = await User.create(req.body);
@@ -28,7 +34,7 @@ router.post('/', async (req, res) => {
     }
   });
 
-
+// checking if the login details match
   router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({ where: { email: req.body.email } });
@@ -40,7 +46,7 @@ router.post('/', async (req, res) => {
         return;
       }
   
-      const validPassword = await userData.checkPassword(req.body.password);
+      const validPassword = userData.checkPassword(req.body.password);
   
       if (!validPassword) {
         res
